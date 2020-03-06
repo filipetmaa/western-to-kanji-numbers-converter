@@ -1,0 +1,22 @@
+<canvas #canvas></canvas>
+<div id="translator">
+  <input #userInput type="text" (keyup.enter)="convertToKanji(userInput.value)" inputmode="numeric" pattern="[0-9]*" digitOnly>
+  <div class="buttons">
+    <button (click)="convertToKanji(userInput.value)">Convert</button>
+    <button id="tts-button" (click)="toggleMute()">
+      <mat-icon *ngIf="unmuted; else muted">volume_up</mat-icon>
+      <ng-template #muted><mat-icon>volume_off</mat-icon></ng-template>
+    </button>
+  </div>
+  <div class="results">
+    <div>{{ result }}</div>
+    <div *ngIf="readings.length != 0" class="readings">
+      <div class="parentheses">(</div>
+      <div *ngFor="let reading of readings" class="reading">
+        <div class="hiragana">{{ reading.hiragana }}</div>
+        <div class="romaji">{{ reading.romaji }}</div>
+      </div>
+      <div class="parentheses">)</div>
+    </div>
+  </div>
+</div>

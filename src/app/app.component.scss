@@ -1,0 +1,106 @@
+:host {
+  position:relative;
+  
+  canvas {
+    position: absolute;
+  }
+
+  #translator {
+    height: 100vh;
+    padding: 32px;
+    display: grid;
+    grid-template-rows: 2fr auto 3fr;
+    grid-auto-columns: 100%;
+    grid-gap: 48px;
+    justify-content: center;
+    justify-items: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+    input {
+      align-self: flex-end;
+      width: 100%;
+      max-width: 512px;
+      height: 48px;
+      padding: 0px 24px;
+      color: #080848;
+      border: none;
+      border-radius: 24px;
+      font-size: 32px;
+      line-height: 48px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .buttons {
+      display: grid;
+      grid-auto-flow: column;
+      grid-column-gap: 24px;
+
+      button {
+        width: 128px;
+        height: 48px;
+        padding: 0;
+        color: #080848;
+        background-color: #fafaed;
+        font-size: 24px;
+        line-height: 48px;
+        border: none;
+        border-radius: 24px;
+        box-shadow: 0px 0px 24px 0px rgba(250,250,237,0.75);
+        transition: box-shadow 0.8s ease-in-out;
+
+        &#tts-button {
+          width: 48px;
+
+          mat-icon {
+            line-height: 48px;
+          }
+        }
+
+        &:hover {
+          cursor: pointer;
+          box-shadow: 0px 0px 48px 0px rgba(255,250,225,0.75);
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .results {
+      font-size: 48px;
+      color: #fbfae1;
+      text-shadow: -1px 0 #080848, 0 1px #080848, 1px 0 #080848, 0 -1px #080848, 0 0 12px rgba(250,250,237,0.75);
+      text-align: center;
+      margin-bottom: 16px; 
+      display: grid;
+      grid-template-rows: min-content min-content;
+      grid-auto-columns: minmax(120px, 1fr);
+      grid-gap: 32px;
+
+      .readings {
+        display: flexbox;
+        flex-wrap: wrap;
+        align-items: center;
+
+        .parentheses, .reading {
+          font-size: 64px;
+          margin: 8px;
+          display: inline-block;
+        }
+
+        .hiragana {
+          font-size: 16px;
+          line-height: 16px;
+        }
+        
+        .romaji {
+          font-size: 40px;
+          line-height: 40px;
+        }
+      }
+    }
+  }
+}
